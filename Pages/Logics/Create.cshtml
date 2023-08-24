@@ -1,0 +1,29 @@
+﻿@page
+@model UniversityRegistration.Pages.Logics.CreateModel
+@{
+}
+
+<form method="post" class="form-group">
+    <div>
+        <label asp-for="student.FirstName" class="label-control"></label>
+        <input asp-for="student.FirstName" class="form-control" />
+    </div>
+        <div>
+        <label asp-for="student.LastName" class="label-control"></label>
+        <input asp-for="student.LastName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="student.DateOfBirth" class="label-control"></label>
+        <input asp-for="student.DateOfBirth" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="student.FacultyId" class="label-control"></label>
+        <input asp-for="student.FacultyName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="student.DepartmentId" class="label-control"></label>
+        <input asp-for="student.DeptName" class="form-control" />
+    </div>
+
+    <input type="submit" class="btn btn-primary" />
+</form>

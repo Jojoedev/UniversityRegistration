@@ -1,0 +1,34 @@
+﻿@page
+@model UniversityRegistration.Pages.DeptLogics.IndexModel
+@{
+}
+
+@if(Model.department.Count > 0)
+{
+
+<div class="table table-bordered">
+    <table>
+        <thead>
+            <tr>
+                <td>Department Name</td>               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.department)
+            {
+                <tr>
+                    <td>@item.DeptName</td>
+                    
+                </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+
+</div>
+}
+else{
+    <h4> The Table is empty</h4>
+}

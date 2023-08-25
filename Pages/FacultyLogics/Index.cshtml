@@ -1,0 +1,34 @@
+﻿@page
+@model UniversityRegistration.Pages.FacultyLogics.IndexModel
+@{
+}
+<h3>List of Faculties </h3>
+<a href="/FacultyLogics/Create" class="btn btn-primary">Create a Faculty</a>
+
+@if(Model.faculty.Count > 0)
+{
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Faculty Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model.faculty)
+        {
+           <tr>
+               <td>@item.Name</td>
+                <td> <a href="" class="btn btn-outline-primary">Edit</a> </td>
+                <td> <a href="" class="btn btn-outline-primary">Details</a></td>
+                <td> <a href="" class="btn btn-danger">Delete</a> </td>       
+           </tr>
+        }
+    </tbody>
+
+</table>
+}
+else{
+    <h4>The Table is empty</h4>
+
+}

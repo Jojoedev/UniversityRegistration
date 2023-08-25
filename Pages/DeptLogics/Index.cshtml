@@ -2,33 +2,42 @@
 @model UniversityRegistration.Pages.DeptLogics.IndexModel
 @{
 }
+<h3>List of Departments</h3>
 
+<div> <a href="/DeptLogics/Create" class="btn btn-primary">Create a Department</a> </div> 
 @if(Model.department.Count > 0)
 {
 
-<div class="table table-bordered">
-    <table>
+<div>
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <td>Department Name</td>               
+             <th>Department Name </th>     
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.department)
             {
-                <tr>
-                    <td>@item.DeptName</td>
+                
+                  <tr>
+                  <td> @item.Name </td>
+                    <td> <a href="" class="btn btn-outline-primary">Edit</a> </td>
+                    <td> <a href="" class="btn btn-outline-primary">Details</a></td>
+                    <td> <a href="" class="btn btn-danger">Delete</a> </td>                      
+                  </tr>
                     
-                </tr>
             }
 
         </tbody>
 
 
     </table>
-
+      
 </div>
+   
+
 }
 else{
     <h4> The Table is empty</h4>
+    
 }

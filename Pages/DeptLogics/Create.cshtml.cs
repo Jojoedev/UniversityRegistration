@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using UniversityRegistration.Data;
@@ -5,6 +6,7 @@ using UniversityRegistration.Models;
 
 namespace UniversityRegistration.Pages.DeptLogics
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _Context;
@@ -26,7 +28,7 @@ namespace UniversityRegistration.Pages.DeptLogics
             {
                 _Context.Departments.Add(department);
                 _Context.SaveChanges();
-                return RedirectToPage("Inde");
+                return RedirectToPage("Index");
             }
             return Page();
         }

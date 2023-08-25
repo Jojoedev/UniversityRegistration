@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using UniversityRegistration.Data;
@@ -5,6 +6,7 @@ using UniversityRegistration.Models;
 
 namespace UniversityRegistration.Pages.DeptLogics
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _Context;

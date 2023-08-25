@@ -4,11 +4,11 @@
     {
         public int? DepartmentId { get; set; }
 
-        public virtual Department DeptName { get; set; }
+        public virtual Department? Department { get; set; }
 
 
         public int? FacultyId { get; set; }
-        public virtual Faculty FacultyName { get; set; }
+        public virtual Faculty? Faculty { get; set; }
        
     }
 }

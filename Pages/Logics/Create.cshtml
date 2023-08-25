@@ -18,12 +18,21 @@
     </div>
     <div>
         <label asp-for="student.FacultyId" class="label-control"></label>
-        <input asp-for="student.FacultyName" class="form-control" />
+        <select asp-for="student.FacultyId" class="form-control"  asp-items="Model.faculties">
+            <option>Select Faculty</option>
+        </select>
     </div>
     <div>
         <label asp-for="student.DepartmentId" class="label-control"></label>
-        <input asp-for="student.DeptName" class="form-control" />
+        <select asp-for="student.DepartmentId" class="form-control"  asp-items="Model.departments">
+            <option>Select Department</option>
+        </select>
     </div>
-
-    <input type="submit" class="btn btn-primary" />
+    <br />
+    <div>
+    <input type="submit" class="btn btn-primary" /> &nbsp;
+     <a href="/Index" class="btn btn-primary">Index</a>
+     </div>
 </form>
+
+<br />

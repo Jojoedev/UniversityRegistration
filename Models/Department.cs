@@ -7,6 +7,6 @@ namespace UniversityRegistration.Models
         public int Id { get; set; }
         [Required]
         [Display(Name ="Department Name")]
-        public string? DeptName { get; set; }
+        public string Name { get; set; }
     }
 }

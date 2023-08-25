@@ -8,6 +8,6 @@ namespace UniversityRegistration.Models
 
         [Display(Name ="Faculty Name")]
         [Required]
-        public string? FacultyName { get; set; }
+        public string Name { get; set; }
     }
 }

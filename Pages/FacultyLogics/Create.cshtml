@@ -1,0 +1,19 @@
+﻿@page
+@model UniversityRegistration.Pages.FacultyLogics.CreateModel
+@{
+}
+
+<h4>Create Faculty</h4>
+
+
+<form method="post"  class="form-group">
+    <div>
+        <label asp-for="@Model.faculty.Name"  class="label-control" ></label>
+        <input asp-for="@Model.faculty.Name" class="form-control"/>
+    </div>
+    <br /> 
+    <div>
+       <input type="submit" class="btn btn-primary" />
+       <a href="/FacultyLogics/Index" class="btn btn-outline-primary">Back to List</a>
+       </div>
+</form>

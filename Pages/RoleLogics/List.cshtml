@@ -1,0 +1,22 @@
+﻿@page
+@model UniversityRegistration.Pages.RoleLogics.ListModel
+@{
+}
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.roles)
+        {
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+
+<a href="/RoleLogics/Create" class="btn btn-outline-primary">Create Role</a>

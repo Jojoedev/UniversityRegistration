@@ -1,21 +1,23 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UniversityRegistration.Pages.RoleLogics
 {
-    public class ListModel : PageModel
+    [Authorize]
+    public class IndexModel : PageModel
     {
         private readonly RoleManager<IdentityRole> _roleManager;
-        public ListModel(RoleManager<IdentityRole> roleManager)
+        public IndexModel(RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
         }
-        
-        public  RoleManager<IdentityRole> role { get; set; }
+
+        public List<IdentityRole> roles { get; set; }
         public void OnGet()
         {
-           var roles = _roleManager.Roles.ToList();
+            roles = _roleManager.Roles.ToList();
         }
     }
 }

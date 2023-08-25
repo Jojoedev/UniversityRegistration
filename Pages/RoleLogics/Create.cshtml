@@ -2,11 +2,16 @@
 @model UniversityRegistration.Pages.RoleLogics.CreateModel
 @{
 }
-<form method="post">
-    <div>
-        <label>Name</label>
-        <input asp-for="@Model.identityRole" />
+<form method="post" class="form-group">
+    <div> 
+        <label asp-for="@Model.identityRole" class="control-label"></label>
+        <input asp-for="@Model.identityRole.Name" class="form-control" />
 
     </div>
-    <input type="submit" class="btn btn-primary" />
+    <br />
+    <div>
+    <input type="submit" class="btn btn-outline-primary" />
+    <a href="/RoleLogics/Index" class="btn btn-outline-primary">Create Role</a>
+    </div>
 </form>
+

@@ -134,7 +134,16 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
+
+            // InputModel n = new InputModel();
+            IdentityRole Nrole = new IdentityRole();
+            
+            Nrole.Name = Input.Name.ToString();
+            
+
             var role = _roleManager.FindByNameAsync(Input.Name).Result;
+            
+
             
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
@@ -144,9 +153,8 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     Email = Input.Email,
-                    UserName = Input.Email
-
-
+                    UserName = Input.Email,
+                    
                 };
 
                 //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);

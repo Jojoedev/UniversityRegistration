@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UniversityRegistration.Pages.RoleLogics
 {
-    [Authorize]
+    [Authorize(Roles ="IT")]
     public class CreateModel : PageModel
     {
         private RoleManager<IdentityRole> _roleManager;
@@ -15,20 +15,18 @@ namespace UniversityRegistration.Pages.RoleLogics
         }
 
         [BindProperty]
-        public IdentityRole identityRole { get; set; } 
+        public IdentityRole Role { get; set; } 
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        public async Task<IActionResult> OnPost(IdentityRole identityRole)
+        public async Task<IActionResult> OnPost(IdentityRole Role)
         {
            // string roleName = identityRole.Name;
             if (ModelState.IsValid)
             {
-                await _roleManager.CreateAsync(identityRole);
-
-                
+                await _roleManager.CreateAsync(Role);
                return RedirectToPage("Index");
 
             }

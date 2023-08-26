@@ -115,11 +115,13 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
 
 
             //This is for IdentityRole Name
+            [Required]
             public string Name { get; set; }
         }
 
+        
         //Defining dropdown for IdentityRole
-        public SelectList roles { get; set; }
+        public SelectList Roles { get; set; }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -127,7 +129,8 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             
             //Displaying Roles Dropdown upon loading of Registration Page
-            roles = new SelectList(_roleManager.Roles.ToList(), "Id", "Name");
+            Roles = new SelectList(_roleManager.Roles.ToList(), "Name", "Name");
+           // Roles = new SelectList(_roleManager.Roles.ToList(), "Id", "Name");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -137,10 +140,10 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
 
             // InputModel n = new InputModel();
             IdentityRole Nrole = new IdentityRole();
-            
-            Nrole.Name = Input.Name.ToString();
-            
+            Nrole.Name = Input.Name;
+             
 
+            //var nrole = _roleManager.FindByNameAsync(Input.Name).Result;
             var role = _roleManager.FindByNameAsync(Input.Name).Result;
             
 
@@ -154,7 +157,7 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
                     LastName = Input.LastName,
                     Email = Input.Email,
                     UserName = Input.Email,
-                    
+                                        
                 };
 
                 //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
@@ -196,7 +199,7 @@ namespace UniversityRegistration.Areas.Identity.Pages.Account
                 }
             }
             //If the creation fails, load the dropdown list for role again and return the registration page
-            roles = new SelectList(_roleManager.Roles.ToList(), "Id", "Name");
+            Roles = new SelectList(_roleManager.Roles.ToList(), "Id", "Name");
             // If we got this far, something failed, redisplay form
             return Page();
         }

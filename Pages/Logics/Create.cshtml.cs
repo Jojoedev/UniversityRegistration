@@ -7,7 +7,7 @@ using UniversityRegistration.Models;
 
 namespace UniversityRegistration.Pages.Logics
 {
-    [Authorize]
+    [Authorize(Roles = "IT")]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _Context;

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UniversityRegistration.Pages.RoleLogics
 {
-    [Authorize]
+    [Authorize(Roles ="IT")]
     public class IndexModel : PageModel
     {
         private readonly RoleManager<IdentityRole> _roleManager;
